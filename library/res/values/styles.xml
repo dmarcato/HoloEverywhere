@@ -417,16 +417,16 @@
         <item name="android:textColorHighlight">@color/highlighted_text_holo_dark</item>
         <item name="android:textColorHint">@color/hint_foreground_holo_dark</item>
         <!--End of block ColorsDark-->
-        <item name="android:textColorLink">@color/holo_blue_light</item>
+        <item name="android:textColorLink">?attr/mainHoloColor</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>
     </style>
     <style name="Holo.TextAppearance.DialogWindowTitle">
-        <item name="android:textColor">@color/holo_blue_light</item>
+        <item name="android:textColor">?attr/mainHoloColor</item>
         <item name="android:textSize">22sp</item>
     </style>
     <style name="Holo.TextAppearance.DialogWindowTitle.Light" parent="Holo.TextAppearance.Light">
-        <item name="android:textColor">@color/holo_blue_light</item>
+        <item name="android:textColor">?attr/mainHoloColor</item>
         <item name="android:textSize">22sp</item>
     </style>
     <style name="Holo.TextAppearance.DropDownItem">
@@ -685,7 +685,7 @@
         <item name="android:candidatesTextStyleSpans">@string/candidates_style</item>
         <item name="android:textCheckMark">?android:checkMark</item>
         <item name="android:textCheckMarkInverse">?android:checkMark</item>
-        <item name="android:textColorLink">@color/holo_blue_light</item>
+        <item name="android:textColorLink">?attr/mainHoloColor</item>
         <!--End of block Text-->
         <item name="android:textAppearance">@style/Holo.TextAppearance</item>
         <item name="android:textAppearanceInverse">@style/Holo.TextAppearance.Inverse</item>
@@ -880,7 +880,7 @@
         <item name="android:candidatesTextStyleSpans">@string/candidates_style</item>
         <item name="android:textCheckMark">?android:checkMark</item>
         <item name="android:textCheckMarkInverse">?android:checkMark</item>
-        <item name="android:textColorLink">@color/holo_blue_light</item>
+        <item name="android:textColorLink">?attr/mainHoloColor</item>
         <!--End of block Text-->
         <item name="android:textAppearance">@style/Holo.TextAppearance.Light</item>
         <item name="android:textAppearanceInverse">@style/Holo.TextAppearance.Inverse.Light</item>
@@ -1014,7 +1014,7 @@
         <item name="android:candidatesTextStyleSpans">@string/candidates_style</item>
         <item name="android:textCheckMark">?android:checkMark</item>
         <item name="android:textCheckMarkInverse">?android:checkMark</item>
-        <item name="android:textColorLink">@color/holo_blue_light</item>
+        <item name="android:textColorLink">?attr/mainHoloColor</item>
         <!--End of block Text-->
         <item name="android:textAppearance">@style/Holo.TextAppearance.Light</item>
         <item name="android:textAppearanceInverse">@style/Holo.TextAppearance.Inverse.Light</item>
