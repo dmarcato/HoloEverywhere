@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="mainHoloColor" format="reference|color" />
+    
 	<!--
     Already defined in ABS 
 	<attr name="spinnerItemStyle" format="reference" />

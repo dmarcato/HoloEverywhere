@@ -45,7 +45,7 @@
 			android:id="@+id/titleDivider"
 			android:layout_width="match_parent"
 			android:layout_height="2dip"
-			android:background="@color/holo_blue_light"
+			android:background="?attr/mainHoloColor"
 			android:visibility="gone" />
 	</LinearLayout>
 	<LinearLayout

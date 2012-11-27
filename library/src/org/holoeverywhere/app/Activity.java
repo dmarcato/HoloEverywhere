@@ -138,8 +138,9 @@ public abstract class Activity extends _HoloActivity {
         return super.onMenuOpened(featureId, menu);
     }
 
+    //TODO readd final
     @Override
-    public final boolean onOptionsItemSelected(android.view.MenuItem item) {
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
         return false;
     }
 
