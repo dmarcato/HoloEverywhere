@@ -2,6 +2,7 @@
 package org.holoeverywhere.widget;
 
 import org.holoeverywhere.IHoloActivity;
+import org.holoeverywhere.IHoloActivity.OnWindowFocusChangeListener;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -21,7 +22,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 public class ListView extends android.widget.ListView implements
-        ContextMenuInfoGetter {
+        ContextMenuInfoGetter, OnWindowFocusChangeListener {
     public interface MultiChoiceModeListener extends ActionMode.Callback {
         public void onItemCheckedStateChanged(ActionMode mode, int position,
                 long id, boolean checked);
@@ -116,6 +117,15 @@ public class ListView extends android.widget.ListView implements
         }
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        if (hasWindowFocus) {
+            invalidate();
+            invalidateViews();
+        }
+    }
+
     public static final int CHOICE_MODE_MULTIPLE_MODAL = AbsListView.CHOICE_MODE_MULTIPLE_MODAL;
     private ActionMode actionMode;
     private int checkedItemCount;
@@ -126,18 +136,19 @@ public class ListView extends android.widget.ListView implements
     private final OnItemLongClickListenerWrapper longClickListenerWrapper = new OnItemLongClickListenerWrapper();
 
     public ListView(Context context) {
-        super(context);
-        init(context);
+        this(context, null);
     }
 
     public ListView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context);
+        this(context, attrs, android.R.attr.listViewStyle);
     }
 
     public ListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
+        super.setOnItemLongClickListener(longClickListenerWrapper);
+        if (context instanceof IHoloActivity) {
+            setHoloActivity((IHoloActivity) context);
+        }
     }
 
     protected ContextMenuInfo createContextMenuInfo(View view, int position,
@@ -172,13 +183,6 @@ public class ListView extends android.widget.ListView implements
         return contextMenuInfo;
     }
 
-    protected void init(Context context) {
-        super.setOnItemLongClickListener(longClickListenerWrapper);
-        if (context instanceof IHoloActivity) {
-            holoActivity = (IHoloActivity) context;
-        }
-    }
-
     @Override
     public boolean performItemClick(View view, int position, long id) {
         if (choiceMode == ListView.CHOICE_MODE_MULTIPLE_MODAL) {
@@ -193,10 +197,6 @@ public class ListView extends android.widget.ListView implements
         return super.performItemClick(view, position, id);
     }
 
-    public final void setBase(IHoloActivity mBase) {
-        holoActivity = mBase;
-    }
-
     @Override
     public void setChoiceMode(int choiceMode) {
         if (this.choiceMode == choiceMode) {
@@ -208,7 +208,6 @@ public class ListView extends android.widget.ListView implements
             actionMode = null;
         }
         if (choiceMode == ListView.CHOICE_MODE_MULTIPLE_MODAL) {
-            super.setOnItemLongClickListener(longClickListenerWrapper);
             clearChoices();
             checkedItemCount = 0;
             setLongClickable(true);
@@ -218,6 +217,13 @@ public class ListView extends android.widget.ListView implements
             super.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         } else {
             super.setChoiceMode(choiceMode);
+        }
+    }
+
+    public final void setHoloActivity(IHoloActivity iHoloActivity) {
+        holoActivity = iHoloActivity;
+        if (holoActivity != null) {
+            holoActivity.addOnWindowFocusChangeListener(this);
         }
     }
 

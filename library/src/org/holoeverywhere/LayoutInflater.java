@@ -22,6 +22,8 @@ import org.holoeverywhere.widget.DatePicker;
 import org.holoeverywhere.widget.Divider;
 import org.holoeverywhere.widget.EditText;
 import org.holoeverywhere.widget.FragmentBreadCrumbs;
+import org.holoeverywhere.widget.FrameLayout;
+import org.holoeverywhere.widget.GridView;
 import org.holoeverywhere.widget.LinearLayout;
 import org.holoeverywhere.widget.ListView;
 import org.holoeverywhere.widget.MultiAutoCompleteTextView;
@@ -114,6 +116,8 @@ public class LayoutInflater extends android.view.LayoutInflater implements
         remap(ViewPager.class);
         remap(PagerTitleStrip.class);
         remap(WebView.class);
+        remap(FrameLayout.class);
+        remap(GridView.class);
         remapInternal(ActionBarView.class, HoloListMenuItemView.class,
                 ExpandedMenuView.class, ActionBarContainer.class,
                 RecycleListView.class, DialogTitle.class,
