@@ -5,6 +5,4 @@
 	<integer name="config_shortAnimTime">200</integer>
 	<integer name="config_mediumAnimTime">400</integer>
 	<integer name="config_longAnimTime">500</integer>
-	
-	<color name="mainHoloColor">@color/holo_blue_light</color>
 </resources>

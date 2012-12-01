@@ -113,8 +113,9 @@ public abstract class _HoloFragment extends Fragment implements IHoloFragment {
         super.onAttach(activity);
     }
 
+    //TODO readd final
     @Override
-    public final void onAttach(android.app.Activity activity) {
+    public void onAttach(android.app.Activity activity) {
         if (!(activity instanceof Activity)) {
             throw new RuntimeException(
                     "HoloEverywhere.Fragment must be attached to HoloEverywhere.Activity");
@@ -150,8 +151,9 @@ public abstract class _HoloFragment extends Fragment implements IHoloFragment {
         activity.onCreateContextMenu(menu, v, menuInfo);
     }
 
+    //TODO readd final
     @Override
-    public final void onCreateOptionsMenu(android.view.Menu menu,
+    public void onCreateOptionsMenu(android.view.Menu menu,
             android.view.MenuInflater inflater) {
         onCreateOptionsMenu(new MenuWrapper(menu),
                 activity.getSupportMenuInflater());
@@ -162,8 +164,9 @@ public abstract class _HoloFragment extends Fragment implements IHoloFragment {
 
     }
 
+    //TODO readd final
     @Override
-    public final View onCreateView(android.view.LayoutInflater inflater,
+    public View onCreateView(android.view.LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         return prepareDecorView(onCreateView(
                 getLayoutInflater(savedInstanceState), container,
@@ -188,8 +191,9 @@ public abstract class _HoloFragment extends Fragment implements IHoloFragment {
         onInflate((Activity) activity, attrs, savedInstanceState);
     }
 
+    //TODO readd final
     @Override
-    public final boolean onOptionsItemSelected(android.view.MenuItem item) {
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
         return onOptionsItemSelected(new MenuItemWrapper(item));
     }
 
@@ -198,8 +202,9 @@ public abstract class _HoloFragment extends Fragment implements IHoloFragment {
         return false;
     }
 
+    //TODO readd final
     @Override
-    public final void onPrepareOptionsMenu(android.view.Menu menu) {
+    public void onPrepareOptionsMenu(android.view.Menu menu) {
         onPrepareOptionsMenu(new MenuWrapper(menu));
     }
 

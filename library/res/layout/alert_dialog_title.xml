@@ -23,11 +23,11 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="0"
-			android:textColor="@color/holo_blue_light" />
+			android:textColor="?attr/mainHoloColor" />
 	</LinearLayout>
 	<View
 		android:id="@+id/titleDivider"
 		android:layout_width="match_parent"
 		android:layout_height="1dip"
-		android:background="@color/holo_blue_light" />
+		android:background="?attr/mainHoloColor" />
 </LinearLayout>
